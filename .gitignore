@@ -5,3 +5,9 @@
 *.filters
 review.vcxproj
 review.vcxproj.filters
+review.vcxproj.filters
+*.idb
+*.tlog
+*.log
+*.filters
+*.vcxproj
