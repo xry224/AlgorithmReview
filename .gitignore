@@ -11,3 +11,10 @@ review.vcxproj.filters
 *.log
 *.filters
 *.vcxproj
+*.tlog
+*.filters
+*.vcxproj
+*.pdb
+*.idb
+*.tlog
+*.log
