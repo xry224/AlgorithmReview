@@ -18,3 +18,8 @@ review.vcxproj.filters
 *.idb
 *.tlog
 *.log
+*.tlog
+*.idb
+*.pdb
+*.vcxproj
+*.filters

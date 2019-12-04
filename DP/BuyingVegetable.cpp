@@ -2,17 +2,27 @@
 //
 //描述
 //
-//Rahul wanted to purchase vegetables mainly brinjal, carrotand tomato.There are N different vegetable sellers in a line.Each vegetable seller sells all three vegetable items, but at different prices.Rahul, obsessed by his nature to spend optimally, decided not to purchase same vegetable from adjacent shops.Also, Rahul will purchase exactly one type of vegetable item(only 1 kg) from one shop.Rahul wishes to spend minimum money buying vegetables using this strategy.Help Rahul determine the minimum money he will spend.
+//Rahul wanted to purchase vegetables mainly brinjal, carrotand tomato.There are N different 
+//vegetable sellers in a line.Each vegetable seller sells all three vegetable items, 
+//but at different prices.Rahul, obsessed by his nature to spend optimally, decided not to 
+//purchase same vegetable from adjacent shops.Also, Rahul will purchase exactly one type of 
+//vegetable item(only 1 kg) from one shop.Rahul wishes to spend minimum money buying vegetables 
+//using this strategy.Help Rahul determine the minimum money he will spend.
 //
 //输入
 //
-//First line indicates number of test cases T.Each test case in its first line contains N denoting the number of vegetable sellers in Vegetable Market.Then each of next N lines contains three space separated integers denoting cost of brinjal, carrotand tomato per kg with that particular vegetable seller.
+//First line indicates number of test cases T.Each test case in its first line contains N 
+//denoting the number of vegetable sellers in Vegetable Market.Then each of next N lines 
+//contains three space separated integers denoting cost of brinjal, carrotand tomato per kg 
+//with that particular vegetable seller.
 //
 //输出
 //
-//For each test case, output the minimum cost of shopping taking the mentioned conditions into account in a separate line.
+//For each test case, output the minimum cost of shopping taking the mentioned conditions 
+//into account in a separate line.
 //
-//Constraints:1 <= T <= 101 <= N <= 100000 Cost of each vegetable(brinjal / carrot / tomato) per kg does not exceed 10 ^ 4
+//Constraints:1 <= T <= 101 <= N <= 100000 Cost of each vegetable(brinjal / carrot / tomato) 
+//per kg does not exceed 10 ^ 4
 //
 //	输入样例 1
 //
@@ -46,7 +56,10 @@ vector<string> token(string data)
 		data = data.substr(index + 1);
 		index = data.find(' ');
 	}
-	res.push_back(data);
+	if (data != "")
+	{
+		res.push_back(data);		
+	}
 	return res;
 }
 vector<long long> convertData(string data)

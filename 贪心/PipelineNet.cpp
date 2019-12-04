@@ -31,24 +31,25 @@
 //	5 6 10
 //
 #include <iostream>
-#include<vector>
-#include <climits>
+#include <vector>
 #include <map>
+#include <climits>
+#include <algorithm>
 using namespace std;
-struct Edge
+struct edge
 {
-	int from;
-	int to;
+	int in;
+	int out;
 	int cost;
-	Edge(int f, int t, int c)
+	edge()
 	{
-		from = f;
-		to = t;
-		cost = c;
+
 	}
-	Edge()
+	edge(int a, int b, int c)
 	{
-		from = to = cost = -1;
+		in = a;
+		out = b;
+		cost = c;
 	}
 };
 int main()
@@ -57,42 +58,45 @@ int main()
 	cin >> T;
 	while (T--)
 	{
-		int n, edgeNums;
-		cin >> n >> edgeNums;
-		vector<int> edges(n + 1, -1);
-		vector<vector<int>> costs(n + 1, vector<int>(n + 1));
-		map<int, int> appear;
+		int n, p;
+		cin >> n >> p;
 		vector<int> in(n + 1);
-		for (int i = 0; i < edgeNums; ++i)
+		vector<int> edges(n + 1, -1);
+		vector<vector<int>> costs(n + 1, vector<int>(n + 1, -1));
+		map<int, int> appear;
+		for (int i = 0; i < p; ++i)
 		{
-			int from, to, cost;
-			cin >> from >> to >> cost;
-			edges[from] = to;
-			costs[from][to] = cost;
-			appear[from]++;
-			appear[to]++;
-			in[to]++;
+			int a, b, cost;
+			cin >> a >> b >> cost;
+			edges[a] = b;
+			in[b]++;
+			appear[a]++;
+			appear[b]++;
+			costs[a][b] = cost;
 		}
-		vector<Edge> ans;
+		vector<edge> install;
 		for (int i = 1; i <= n; ++i)
 		{
 			if (in[i] == 0 && appear[i])
 			{
-				int curNode = i;
 				int minCost = INT_MAX;
+				int curNode = i;
+				int preNode = i;
 				while (edges[curNode] != -1)
 				{
-					int next = edges[curNode];
-					minCost = minCost < costs[curNode][next] ? minCost : costs[curNode][next];
-					curNode = next;
+					preNode = curNode;
+					curNode = edges[curNode];
+					minCost = minCost > costs[preNode][curNode] ? costs[preNode][curNode] : minCost;
 				}
-				ans.emplace_back(Edge(i, curNode, minCost));
+			 	//cout << i << " " << curNode << endl;
+				install.push_back(edge(i, curNode, minCost));
 			}
 		}
-		cout << ans.size() << endl;
-		for (int i = 0; i < ans.size(); ++i)
+		sort(install.begin(), install.end(), [](edge a, edge b) {return a.in < b.in; });
+		cout << install.size() << endl;
+		for (int i = 0; i < install.size(); ++i)
 		{
-			cout << ans[i].from << " " << ans[i].to << " " << ans[i].cost << endl;
+			cout << install[i].in << " " << install[i].out << " " << install[i].cost << endl;
 		}
 	}
 	return 0;

@@ -1,5 +1,3 @@
-﻿  拓扑排序解的个数.cpp
-D:\Files\研究生\课件\高级算法\复习题\review\review\拓扑排序解的个数.cpp(55,20): warning C4018: “<”: 有符号/无符号不匹配
-D:\Files\研究生\课件\高级算法\复习题\review\review\拓扑排序解的个数.cpp(86,22): warning C4018: “<”: 有符号/无符号不匹配
-D:\Files\研究生\课件\高级算法\复习题\review\review\拓扑排序解的个数.cpp(94,22): warning C4018: “<”: 有符号/无符号不匹配
+﻿  格子里的整数.cpp
+D:\Files\研究生\课件\高级算法\复习题\review\review\格子里的整数.cpp(55,9): warning C4552: ”<“: 未使用表达式结果
   review.vcxproj -> D:\Files\研究生\课件\高级算法\复习题\review\Debug\review.exe
